@@ -1,5 +1,5 @@
 //
-//  CustomEventTableViewController.swift
+//  BranchLinkTableViewController.swift
 //  TestBed-Swift
 //
 //  Created by David Westgate on 8/7/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomEventTableViewController: UITableViewController {
+class BranchLinkTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +31,9 @@ class CustomEventTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch(indexPath.row) {
             case 4 :
-                self.performSegueWithIdentifier("CustomEventTags", sender: self)
+                self.performSegueWithIdentifier("ShowBranchLinkTagsViewController", sender: self)
             case 5 :
-                self.performSegueWithIdentifier("CustomEventData", sender: self)
+                self.performSegueWithIdentifier("ShowBranchLinkData", sender: self)
             default : break
         }
         

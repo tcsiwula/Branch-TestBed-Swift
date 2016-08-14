@@ -10,9 +10,11 @@ import UIKit
 class ViewController: UITableViewController {
     
     @IBOutlet weak var userIDLabel: UILabel!
-    @IBOutlet weak var userIDValue: UILabel!
-    @IBOutlet weak var branchLinkTextField: UITextField!
-    @IBOutlet weak var pointsLabel: UILabel!
+    @IBOutlet weak var userIDTextField: UITextField!
+    
+    @IBOutlet weak var linkTextField: UITextField!
+    @IBOutlet weak var rewardPointBalancesTextView: UITextView!
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var actionButton: UIBarButtonItem!
     
@@ -29,8 +31,6 @@ class ViewController: UITableViewController {
     let desktop_url = "http://branch.io"
     let ios_url = "https://dev.branch.io/getting-started/sdk-integration-guide/guide/ios/"
     let shareText = "Super amazing thing I want to share"
-    let user_id1 = "Teddy the Greek"
-    let user_id2 = "Teddy the Greek"
     let live_key = "live_key"
     let test_key = "test_key"
     
@@ -39,7 +39,6 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         UITableViewCell.appearance().backgroundColor = UIColor.clearColor()
-        self.branchLinkTextField.addTarget(self, action: #selector(ViewController.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
         
         // let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         // self.tableView.addGestureRecognizer(gestureRecognizer)
@@ -59,14 +58,46 @@ class ViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch(indexPath.section, indexPath.row) {
         case (0,0) :
-            self.performSegueWithIdentifier("ShowUserIDViewControllerSegue", sender: nil)
+            self.performSegueWithIdentifier("ShowUserIDViewController", sender: nil)
+        case (1,0) :
+            guard linkTextField.text?.characters.count > 0 else {
+                break
+            }
+            UIPasteboard.generalPasteboard().string = linkTextField.text
+            showAlert("Link copied to clipboard", withDescription: linkTextField.text!)
         case (1,1) :
-            self.performSegueWithIdentifier("ShowCustomEventSegue", sender: nil)
-        case (1,2) :
-            self.performSegueWithIdentifier("CustomEventData", sender: nil)
+            self.performSegueWithIdentifier("ShowBranchLinkViewController", sender: nil)
+        case (2,1) :
+            let branch = Branch.getInstance()
+            branch.getCreditHistoryWithCallback { (creditHistory, error) in
+                if (error == nil) {
+                    self.creditHistory = creditHistory as Array?
+                    self.performSegueWithIdentifier("ShowCreditHistoryViewController", sender: nil)
+                } else {
+                    print(String(format: "Branch TestBed: Error retrieving credit history: %@", error.localizedDescription))
+                    self.showAlert("Error retrieving credit history", withDescription:error.localizedDescription)
+                }
+            }
+        case (3,0) :
+            self.performSegueWithIdentifier("ShowSendCustomEventViewController", sender: nil)
+        case (4,0) :
+            let branch = Branch.getInstance()
+            let params = branch.getFirstReferringParams()
+            let logOutput = String(format:"LatestReferringParams:\n\n%@", params.description)
+            
+            self.performSegueWithIdentifier("ShowLogOutputViewController", sender: logOutput)
+            print("Branch TestBed: LatestReferringParams:\n", logOutput)
+        case (4,1) :
+            let branch = Branch.getInstance()
+            let params = branch.getFirstReferringParams()
+            let logOutput = String(format:"FirstReferringParams:\n\n%@", params.description)
+            
+            self.performSegueWithIdentifier("ShowLogOutputViewController", sender: logOutput)
+            print("Branch TestBed: FirstReferringParams:\n", logOutput)
         default : break
         }
         
@@ -85,7 +116,7 @@ class ViewController: UITableViewController {
         branchUniversalObject.getShortUrlWithLinkProperties(linkProperties) { (url, error) in
             if (error == nil) {
                 print(url)
-                self.branchLinkTextField.text = url
+                self.linkTextField.text = url
             } else {
                 print(String(format: "Branch TestBed: %@", error))
                 self.showAlert("Link Creation Failed", withDescription: error.localizedDescription)
@@ -95,8 +126,8 @@ class ViewController: UITableViewController {
     }
     
     
-    @IBAction func redeemFivePointsButtonTouchUpInside(sender: AnyObject) {
-        pointsLabel.hidden = true
+    @IBAction func redeemPointsButtonTouchUpInside(sender: AnyObject) {
+        rewardPointBalancesTextView.hidden = true
         activityIndicator.startAnimating()
         
         let branch = Branch.getInstance()
@@ -108,16 +139,11 @@ class ViewController: UITableViewController {
                 print("Branch TestBed: Five Points Redeemed!")
             }
         }
-        pointsLabel.hidden = false
+        rewardPointBalancesTextView.hidden = false
         activityIndicator.stopAnimating()
     }
     
-    
-    @IBAction func setUserIDButtonTouchUpInside(sender: AnyObject) {
-        
-    }
-    
-    @IBAction func refreshRewardsButtonTouchUpInside(sender: AnyObject) {
+    @IBAction func reloadBalancesButtonTouchUpInside(sender: AnyObject) {
         refreshRewardPoints()
     }
     
@@ -136,7 +162,7 @@ class ViewController: UITableViewController {
 
     }
     
-    @IBAction func sendBuyEventButtonTouchUpInside(sender: AnyObject) {
+    @IBAction func sendEventButtonTouchUpInside(sender: AnyObject) {
         let branch = Branch.getInstance()
         branch.userCompletedAction("buy")
         refreshRewardPoints()
@@ -144,13 +170,13 @@ class ViewController: UITableViewController {
     }
     
     @IBAction func sendComplexEventButtonTouchUpInside(sender: AnyObject) {
-        self.performSegueWithIdentifier("ShowCustomEvent", sender: nil)
+        self.performSegueWithIdentifier("ShowBranchLink", sender: nil)
         /*
         let eventDetails = ["name": user_id1, "integer": 1, "boolean": true, "float": 3.14159265359, "test_key": test_key]
         let branch = Branch.getInstance()
         branch.userCompletedAction("buy", withState: eventDetails as [NSObject : AnyObject])
-        let logOutput = String(format: "Custom Event Details:\n\n%@", eventDetails.description)
-        self.performSegueWithIdentifier("ShowLogOutput", sender: logOutput)
+        let logOutput = String(format: "Branch Link Details:\n\n%@", eventDetails.description)
+        self.performSegueWithIdentifier("ShowLogOutputViewController", sender: logOutput)
         */
     }
     
@@ -160,7 +186,7 @@ class ViewController: UITableViewController {
         branch.getCreditHistoryWithCallback { (creditHistory, error) in
             if (error == nil) {
                 self.creditHistory = creditHistory as Array?
-                self.performSegueWithIdentifier("ShowCreditHistory", sender: nil)
+                self.performSegueWithIdentifier("ShowCreditHistoryViewController", sender: nil)
             } else {
                 print(String(format: "Branch TestBed: Error retrieving credit history: %@", error.localizedDescription))
                 self.showAlert("Error retrieving credit history", withDescription:error.localizedDescription)
@@ -174,7 +200,7 @@ class ViewController: UITableViewController {
         let params = branch.getFirstReferringParams()
         let logOutput = String(format:"FirstReferringParams:\n\n%@", params.description)
         
-        self.performSegueWithIdentifier("ShowLogOutput", sender: logOutput)
+        self.performSegueWithIdentifier("ShowLogOutputViewController", sender: logOutput)
         print("Branch TestBed: FirstReferringParams:\n", logOutput)
     }
     
@@ -182,9 +208,9 @@ class ViewController: UITableViewController {
     @IBAction func viewLatestReferringParamsButtonTouchUpInside(sender: AnyObject) {
         let branch = Branch.getInstance()
         let params = branch.getFirstReferringParams()
-        let logOutput = String(format:"FirstReferringParams:\n\n%@", params.description)
+        let logOutput = String(format:"LatestReferringParams:\n\n%@", params.description)
         
-        self.performSegueWithIdentifier("ShowLogOutput", sender: logOutput)
+        self.performSegueWithIdentifier("ShowLogOutputViewController", sender: logOutput)
         print("Branch TestBed: LatestReferringParams:\n", logOutput)
     }
     
@@ -234,25 +260,25 @@ class ViewController: UITableViewController {
     
     
     func refreshRewardPoints() {
-        pointsLabel.hidden = true
+        rewardPointBalancesTextView.hidden = true
         activityIndicator.startAnimating()
         let branch = Branch.getInstance()
         branch.loadRewardsWithCallback { (changed, error) in
             if (error == nil) {
-                self.pointsLabel.text = String(format: "%ld", branch.getCredits())
+                self.rewardPointBalancesTextView.text = String(format: "%ld", branch.getCredits())
             }
         }
         activityIndicator.stopAnimating()
-        pointsLabel.hidden = false
+        rewardPointBalancesTextView.hidden = false
     }
     
     
     //MARK: Resign First Responder
-    func hideKeyboard() {
+    /* func hideKeyboard() {
         if (self.branchLinkTextField.isFirstResponder()) {
             self.branchLinkTextField.resignFirstResponder();
         }
-    }
+    }*/
     
     
     func showAlert(alertTitle: String, withDescription message: String) {
@@ -265,14 +291,14 @@ class ViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {
-            case "ShowUserIDViewControllerSegue":
+            case "ShowUserIDViewController":
                 let vc = (segue.destinationViewController as! UserIDViewController)
-                vc.incumbantUserID = userIDValue.text
-            case "ShowCustomEventSegue":
+                vc.incumbantUserID = userIDTextField.text
+            case "ShowBranchLinkViewController":
                 break
             case "ShowSimulateReferrals":
                 break
-            case "ShowCreditHistory":
+            case "ShowCreditHistoryViewController":
                 let vc = (segue.destinationViewController as! CreditHistoryViewController)
                 vc.creditTransactions = creditHistory
             default:
@@ -283,12 +309,13 @@ class ViewController: UITableViewController {
         
     }
     
+    // This is where we call setIdentity
     @IBAction func unwindUserIDViewController(segue:UIStoryboardSegue) {
         if let userIDViewController = segue.sourceViewController as? UserIDViewController {
             
             if let userID = userIDViewController.userIDTextView.text {
                 
-                guard self.userIDValue.text != userID else {
+                guard self.userIDTextField.text != userID else {
                     return
                 }
                 
@@ -302,7 +329,7 @@ class ViewController: UITableViewController {
                             self.showAlert("Error simulating logout", withDescription: error.localizedDescription)
                         } else {
                             print("Branch TestBed: User ID cleared")
-                            self.userIDValue.text = userID
+                            self.userIDTextField.text = userID
                             self.refreshRewardPoints()
                         }
                     }
@@ -311,8 +338,8 @@ class ViewController: UITableViewController {
                     
                 branch.setIdentity(userID) { (params, error) in
                     if (error == nil) {
-                        print(String(format: "Branch TestBed: Identity Successfully Set%@", params))
-                        self.userIDValue.text = userID
+                        print(String(format: "Branch TestBed: Identity set: %@", userID))
+                        self.userIDTextField.text = userID
                         self.refreshRewardPoints()
                     } else {
                         print(String(format: "Branch TestBed: Error setting identity: %@", error))

@@ -1,5 +1,5 @@
 //
-//  CustomEventDataTableViewController.swift
+//  BranchLinkTagsTableViewController.swift
 //  TestBed-Swift
 //
 //  Created by David Westgate on 8/7/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomEventDataTableViewController: UITableViewController {
+class BranchLinkTagsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

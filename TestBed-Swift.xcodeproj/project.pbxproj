@@ -10,6 +10,7 @@
 		1FD0AC52AA1842CA6F7C5CBA /* libPods-TestBed-Swift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72799EEB76B210A6795944CF /* libPods-TestBed-Swift.a */; };
 		633EEA6A1CF88817000AE1BC /* TestBed-Swift.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 633EEA691CF88817000AE1BC /* TestBed-Swift.entitlements */; };
 		633EEA6C1CF942C4000AE1BC /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EEA6B1CF942C4000AE1BC /* NavigationController.swift */; };
+		63865EAF1D601123006071CE /* RewardsBucketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63865EAE1D601123006071CE /* RewardsBucketViewController.swift */; };
 		63AAF0C21CF758AF00CA98BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AAF0C11CF758AF00CA98BD /* AppDelegate.swift */; };
 		63AAF0C41CF758AF00CA98BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AAF0C31CF758AF00CA98BD /* ViewController.swift */; };
 		63AAF0C71CF758AF00CA98BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AAF0C51CF758AF00CA98BD /* Main.storyboard */; };
@@ -23,9 +24,9 @@
 		63BCC3561D5ABF4F00CE0EB1 /* UserIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BCC3551D5ABF4F00CE0EB1 /* UserIDViewController.swift */; };
 		63BCC3591D5AC8D600CE0EB1 /* cancel-28.png in Resources */ = {isa = PBXBuildFile; fileRef = 63BCC3581D5AC8D600CE0EB1 /* cancel-28.png */; };
 		63BCC35B1D5AC8DF00CE0EB1 /* cancel-56.png in Resources */ = {isa = PBXBuildFile; fileRef = 63BCC35A1D5AC8DF00CE0EB1 /* cancel-56.png */; };
-		63F8BB201D57D2BE0013B6F7 /* CustomEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8BB1F1D57D2BE0013B6F7 /* CustomEventTableViewController.swift */; };
-		63F8BB221D57D32D0013B6F7 /* CustomEventDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8BB211D57D32D0013B6F7 /* CustomEventDataTableViewController.swift */; };
-		63F8BB241D57E7730013B6F7 /* CustomEventTagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8BB231D57E7730013B6F7 /* CustomEventTagsTableViewController.swift */; };
+		63F8BB201D57D2BE0013B6F7 /* BranchLinkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8BB1F1D57D2BE0013B6F7 /* BranchLinkTableViewController.swift */; };
+		63F8BB221D57D32D0013B6F7 /* BranchLinkDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8BB211D57D32D0013B6F7 /* BranchLinkDataTableViewController.swift */; };
+		63F8BB241D57E7730013B6F7 /* BranchLinkTagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8BB231D57E7730013B6F7 /* BranchLinkTagsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		633EEA691CF88817000AE1BC /* TestBed-Swift.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "TestBed-Swift.entitlements"; sourceTree = "<group>"; };
 		633EEA6B1CF942C4000AE1BC /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		63865EAE1D601123006071CE /* RewardsBucketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardsBucketViewController.swift; sourceTree = "<group>"; };
 		63AAF0BE1CF758AF00CA98BD /* TestBed-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TestBed-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63AAF0C11CF758AF00CA98BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63AAF0C31CF758AF00CA98BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,9 +70,9 @@
 		63BCC3551D5ABF4F00CE0EB1 /* UserIDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserIDViewController.swift; sourceTree = "<group>"; };
 		63BCC3581D5AC8D600CE0EB1 /* cancel-28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel-28.png"; sourceTree = "<group>"; };
 		63BCC35A1D5AC8DF00CE0EB1 /* cancel-56.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel-56.png"; sourceTree = "<group>"; };
-		63F8BB1F1D57D2BE0013B6F7 /* CustomEventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEventTableViewController.swift; sourceTree = "<group>"; };
-		63F8BB211D57D32D0013B6F7 /* CustomEventDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEventDataTableViewController.swift; sourceTree = "<group>"; };
-		63F8BB231D57E7730013B6F7 /* CustomEventTagsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEventTagsTableViewController.swift; sourceTree = "<group>"; };
+		63F8BB1F1D57D2BE0013B6F7 /* BranchLinkTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchLinkTableViewController.swift; sourceTree = "<group>"; };
+		63F8BB211D57D32D0013B6F7 /* BranchLinkDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchLinkDataTableViewController.swift; sourceTree = "<group>"; };
+		63F8BB231D57E7730013B6F7 /* BranchLinkTagsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchLinkTagsTableViewController.swift; sourceTree = "<group>"; };
 		64F238FAA0C1505CD62B9B74 /* Pods-TestBed-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestBed-Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestBed-Swift/Pods-TestBed-Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		72799EEB76B210A6795944CF /* libPods-TestBed-Swift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestBed-Swift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12A4B910418708604DC76BC /* Pods-TestBed-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestBed-Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestBed-Swift/Pods-TestBed-Swift.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,9 +160,10 @@
 				633EEA6B1CF942C4000AE1BC /* NavigationController.swift */,
 				63AAF0CD1CF758AF00CA98BD /* Info.plist */,
 				63AAF0EF1CF7594400CA98BD /* TestBed-Swift-Bridging-Header.h */,
-				63F8BB1F1D57D2BE0013B6F7 /* CustomEventTableViewController.swift */,
-				63F8BB211D57D32D0013B6F7 /* CustomEventDataTableViewController.swift */,
-				63F8BB231D57E7730013B6F7 /* CustomEventTagsTableViewController.swift */,
+				63F8BB1F1D57D2BE0013B6F7 /* BranchLinkTableViewController.swift */,
+				63F8BB211D57D32D0013B6F7 /* BranchLinkDataTableViewController.swift */,
+				63F8BB231D57E7730013B6F7 /* BranchLinkTagsTableViewController.swift */,
+				63865EAE1D601123006071CE /* RewardsBucketViewController.swift */,
 			);
 			path = "TestBed-Swift";
 			sourceTree = "<group>";
@@ -384,11 +387,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				63BCC3561D5ABF4F00CE0EB1 /* UserIDViewController.swift in Sources */,
+				63865EAF1D601123006071CE /* RewardsBucketViewController.swift in Sources */,
 				63AAF0FD1CF7F4AD00CA98BD /* CreditHistoryViewController.swift in Sources */,
-				63F8BB241D57E7730013B6F7 /* CustomEventTagsTableViewController.swift in Sources */,
-				63F8BB221D57D32D0013B6F7 /* CustomEventDataTableViewController.swift in Sources */,
+				63F8BB241D57E7730013B6F7 /* BranchLinkTagsTableViewController.swift in Sources */,
+				63F8BB221D57D32D0013B6F7 /* BranchLinkDataTableViewController.swift in Sources */,
 				63AAF1011CF7F58900CA98BD /* LogOutputViewController.swift in Sources */,
-				63F8BB201D57D2BE0013B6F7 /* CustomEventTableViewController.swift in Sources */,
+				63F8BB201D57D2BE0013B6F7 /* BranchLinkTableViewController.swift in Sources */,
 				63AAF0F11CF7594400CA98BD /* Branch.m in Sources */,
 				63AAF0C41CF758AF00CA98BD /* ViewController.swift in Sources */,
 				633EEA6C1CF942C4000AE1BC /* NavigationController.swift in Sources */,

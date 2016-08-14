@@ -80,7 +80,7 @@ class UserIDViewController: UITableViewController, UITextViewDelegate {
   func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
     
     guard (text != "\n") else {
-      performSegueWithIdentifier("UnwindUserIDViewControllerSegue", sender: self)
+      performSegueWithIdentifier("UnwindUserIDViewController", sender: self)
       return false
     }
     
