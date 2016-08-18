@@ -1,5 +1,5 @@
 //
-//  RewardsBucketViewController.swift
+//  RewardPointsToRedeemViewController.swift
 //  AdScrubber
 //
 //  Created by David Westgate on 12/31/15.
@@ -25,24 +25,25 @@
 import UIKit
 
 /// Manages the user interface for updating the
-/// rewardsBucketTextView field of ViewController
-class RewardsBucketViewController: UITableViewController, UITextViewDelegate {
+/// RewardPointsToRedeemTextView field of ViewController
+class RewardPointsToRedeemViewController: UITableViewController, UITextViewDelegate {
     
     // MARK: -
     // MARK: Control Outlets
-    @IBOutlet weak var rewardsBucketTextView: UITextView!
+    @IBOutlet weak var rewardPointsToRedeemTextView: UITextView!
     @IBOutlet weak var cancelButton: UIButton!
     
     // MARK: Variables
-    var incumbantRewardsBucket: String!
+    var incumbantRewardPointsToRedeem: String!
     
     // MARK: Overridden functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        rewardsBucketTextView.delegate = self
-        rewardsBucketTextView.text = incumbantRewardsBucket
-        rewardsBucketTextView.becomeFirstResponder()
+        rewardPointsToRedeemTextView.keyboardType = UIKeyboardType.NumberPad
+        rewardPointsToRedeemTextView.delegate = self
+        rewardPointsToRedeemTextView.text = incumbantRewardPointsToRedeem
+        rewardPointsToRedeemTextView.becomeFirstResponder()
     }
     
     
@@ -54,16 +55,16 @@ class RewardsBucketViewController: UITableViewController, UITextViewDelegate {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        TestData.setRewardsBucket(rewardsBucketTextView.text)
+        TestData.setRewardPointsToRedeem(rewardPointsToRedeemTextView.text)
         
     }
     
     // MARK: Control Actions
     @IBAction func cancelButtonTouchUpInside(sender: AnyObject) {
-        rewardsBucketTextView.text = incumbantRewardsBucket
-        rewardsBucketTextView.textColor = UIColor.lightGrayColor()
-        rewardsBucketTextView.becomeFirstResponder()
-        rewardsBucketTextView.selectedTextRange = rewardsBucketTextView.textRangeFromPosition(rewardsBucketTextView.beginningOfDocument, toPosition: rewardsBucketTextView.beginningOfDocument)
+        rewardPointsToRedeemTextView.text = incumbantRewardPointsToRedeem
+        rewardPointsToRedeemTextView.textColor = UIColor.lightGrayColor()
+        rewardPointsToRedeemTextView.becomeFirstResponder()
+        rewardPointsToRedeemTextView.selectedTextRange = rewardPointsToRedeemTextView.textRangeFromPosition(rewardPointsToRedeemTextView.beginningOfDocument, toPosition: rewardPointsToRedeemTextView.beginningOfDocument)
     }
     
     // MARK: Control Functions
@@ -79,7 +80,7 @@ class RewardsBucketViewController: UITableViewController, UITextViewDelegate {
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         
         guard (text != "\n") else {
-            performSegueWithIdentifier("UnwindRewardsBucketViewController", sender: self)
+            performSegueWithIdentifier("UnwindRewardPointsToRedeemViewController", sender: self)
             return false
         }
         
@@ -87,7 +88,7 @@ class RewardsBucketViewController: UITableViewController, UITextViewDelegate {
         let updatedText = t.stringByReplacingCharactersInRange(range, withString:text)
         
         guard (updatedText != "") else {
-            textView.text = incumbantRewardsBucket
+            textView.text = incumbantRewardPointsToRedeem
             textView.textColor = UIColor.lightGrayColor()
             textView.selectedTextRange = textView.textRangeFromPosition(textView.beginningOfDocument, toPosition: textView.beginningOfDocument)
             return false

@@ -11,6 +11,10 @@
 		633EEA6A1CF88817000AE1BC /* TestBed-Swift.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 633EEA691CF88817000AE1BC /* TestBed-Swift.entitlements */; };
 		633EEA6C1CF942C4000AE1BC /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EEA6B1CF942C4000AE1BC /* NavigationController.swift */; };
 		63865EAF1D601123006071CE /* RewardsBucketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63865EAE1D601123006071CE /* RewardsBucketViewController.swift */; };
+		63865EB11D60E7B6006071CE /* CustomEventMetadataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63865EB01D60E7B6006071CE /* CustomEventMetadataTableViewController.swift */; };
+		63865EB31D60F244006071CE /* CustomEventNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63865EB21D60F244006071CE /* CustomEventNameViewController.swift */; };
+		63865EB51D611A54006071CE /* RewardPointsToRedeemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63865EB41D611A54006071CE /* RewardPointsToRedeemViewController.swift */; };
+		63865EB71D617BED006071CE /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63865EB61D617BED006071CE /* TestData.swift */; };
 		63AAF0C21CF758AF00CA98BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AAF0C11CF758AF00CA98BD /* AppDelegate.swift */; };
 		63AAF0C41CF758AF00CA98BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AAF0C31CF758AF00CA98BD /* ViewController.swift */; };
 		63AAF0C71CF758AF00CA98BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AAF0C51CF758AF00CA98BD /* Main.storyboard */; };
@@ -50,6 +54,10 @@
 		633EEA691CF88817000AE1BC /* TestBed-Swift.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "TestBed-Swift.entitlements"; sourceTree = "<group>"; };
 		633EEA6B1CF942C4000AE1BC /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		63865EAE1D601123006071CE /* RewardsBucketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardsBucketViewController.swift; sourceTree = "<group>"; };
+		63865EB01D60E7B6006071CE /* CustomEventMetadataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEventMetadataTableViewController.swift; sourceTree = "<group>"; };
+		63865EB21D60F244006071CE /* CustomEventNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEventNameViewController.swift; sourceTree = "<group>"; };
+		63865EB41D611A54006071CE /* RewardPointsToRedeemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardPointsToRedeemViewController.swift; sourceTree = "<group>"; };
+		63865EB61D617BED006071CE /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		63AAF0BE1CF758AF00CA98BD /* TestBed-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TestBed-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63AAF0C11CF758AF00CA98BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63AAF0C31CF758AF00CA98BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +172,10 @@
 				63F8BB211D57D32D0013B6F7 /* BranchLinkDataTableViewController.swift */,
 				63F8BB231D57E7730013B6F7 /* BranchLinkTagsTableViewController.swift */,
 				63865EAE1D601123006071CE /* RewardsBucketViewController.swift */,
+				63865EB01D60E7B6006071CE /* CustomEventMetadataTableViewController.swift */,
+				63865EB21D60F244006071CE /* CustomEventNameViewController.swift */,
+				63865EB41D611A54006071CE /* RewardPointsToRedeemViewController.swift */,
+				63865EB61D617BED006071CE /* TestData.swift */,
 			);
 			path = "TestBed-Swift";
 			sourceTree = "<group>";
@@ -389,14 +401,18 @@
 				63BCC3561D5ABF4F00CE0EB1 /* UserIDViewController.swift in Sources */,
 				63865EAF1D601123006071CE /* RewardsBucketViewController.swift in Sources */,
 				63AAF0FD1CF7F4AD00CA98BD /* CreditHistoryViewController.swift in Sources */,
+				63865EB71D617BED006071CE /* TestData.swift in Sources */,
 				63F8BB241D57E7730013B6F7 /* BranchLinkTagsTableViewController.swift in Sources */,
 				63F8BB221D57D32D0013B6F7 /* BranchLinkDataTableViewController.swift in Sources */,
 				63AAF1011CF7F58900CA98BD /* LogOutputViewController.swift in Sources */,
+				63865EB31D60F244006071CE /* CustomEventNameViewController.swift in Sources */,
 				63F8BB201D57D2BE0013B6F7 /* BranchLinkTableViewController.swift in Sources */,
+				63865EB11D60E7B6006071CE /* CustomEventMetadataTableViewController.swift in Sources */,
 				63AAF0F11CF7594400CA98BD /* Branch.m in Sources */,
 				63AAF0C41CF758AF00CA98BD /* ViewController.swift in Sources */,
 				633EEA6C1CF942C4000AE1BC /* NavigationController.swift in Sources */,
 				63AAF0C21CF758AF00CA98BD /* AppDelegate.swift in Sources */,
+				63865EB51D611A54006071CE /* RewardPointsToRedeemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

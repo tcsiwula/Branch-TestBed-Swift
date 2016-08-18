@@ -54,8 +54,7 @@ class UserIDViewController: UITableViewController, UITextViewDelegate {
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     
-    // BlackholeList.displayedBlacklist.setValueWithKey(userIDTextView.text, forKey: "URL")
-    // BlackholeList.candidateBlacklist.setValueWithKey(userIDTextView.text, forKey: "URL")
+    TestData.setUserID(userIDTextView.text)
     
   }
 
