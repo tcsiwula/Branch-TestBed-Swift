@@ -36,8 +36,6 @@ class ViewController: UITableViewController {
     let desktop_url = "http://branch.io"
     let ios_url = "https://dev.branch.io/getting-started/sdk-integration-guide/guide/ios/"
     let shareText = "Super amazing thing I want to share"
-    let live_key = "live_key"
-    let test_key = "test_key"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -376,9 +374,9 @@ class ViewController: UITableViewController {
     
     // This is where we call setIdentity
     @IBAction func unwindUserIDViewController(segue:UIStoryboardSegue) {
-        if let userIDViewController = segue.sourceViewController as? UserIDViewController {
+        if let viewController = segue.sourceViewController as? UserIDViewController {
             
-            if let userID = userIDViewController.userIDTextView.text {
+            if let userID = viewController.userIDTextView.text {
                 
                 guard self.userIDTextField.text != userID else {
                     return
@@ -421,9 +419,9 @@ class ViewController: UITableViewController {
     }
 
     @IBAction func unwindRewardsBucketViewController(segue:UIStoryboardSegue) {
-        if let rewardsBucketViewController = segue.sourceViewController as? RewardsBucketViewController {
+        if let viewController = segue.sourceViewController as? RewardsBucketViewController {
             
-            if let rewardsBucket = rewardsBucketViewController.rewardsBucketTextView.text {
+            if let rewardsBucket = viewController.rewardsBucketTextView.text {
                 
                 guard self.rewardsBucketTextField.text != rewardsBucket else {
                     return
@@ -437,9 +435,9 @@ class ViewController: UITableViewController {
     }
     
     @IBAction func unwindRewardPointsToRedeemViewController(segue:UIStoryboardSegue) {
-        if let rewardPointsToRedeemViewController = segue.sourceViewController as? RewardPointsToRedeemViewController {
+        if let viewController = segue.sourceViewController as? RewardPointsToRedeemViewController {
             
-            if let rewardPointsToRedeem = rewardPointsToRedeemViewController.rewardPointsToRedeemTextView.text {
+            if let rewardPointsToRedeem = viewController.rewardPointsToRedeemTextView.text {
                 
                 guard self.rewardPointsToRedeemTextField.text != rewardPointsToRedeem else {
                     return
@@ -452,9 +450,9 @@ class ViewController: UITableViewController {
     }
     
     @IBAction func unwindCustomEventNameViewController(segue:UIStoryboardSegue) {
-        if let customEventNameViewController = segue.sourceViewController as? CustomEventNameViewController {
+        if let viewController = segue.sourceViewController as? CustomEventNameViewController {
             
-            if let customEventName = customEventNameViewController.customEventNameTextView.text {
+            if let customEventName = viewController.customEventNameTextView.text {
                 
                 guard self.customEventNameTextField.text != customEventName else {
                     return
@@ -463,6 +461,13 @@ class ViewController: UITableViewController {
                 self.customEventNameTextField.text = customEventName
                 
             }
+        }
+    }
+    
+    @IBAction func unwindCustomEventMetadataTableViewController(segue:UIStoryboardSegue) {
+        if let viewController = segue.sourceViewController as? CustomEventMetadataTableViewController {
+            customEventMetadata = viewController.customEventMetadata
+            self.customEventMetadataTextView.text = customEventMetadata.description
         }
     }
     
