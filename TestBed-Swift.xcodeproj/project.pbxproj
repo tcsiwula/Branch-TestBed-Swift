@@ -284,7 +284,7 @@
 				TargetAttributes = {
 					63AAF0BD1CF758AF00CA98BD = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = R63EM248DP;
+						DevelopmentTeam = A3Y2YF8BNX;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
 								enabled = 1;
@@ -571,7 +571,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "TestBed-Swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.branch.Swift.TestBed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tcsiwula.timtesbed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TestBed-Swift/TestBed-Swift-Bridging-Header.h";
@@ -590,7 +590,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "TestBed-Swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.branch.Swift.TestBed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tcsiwula.timtesbed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TestBed-Swift/TestBed-Swift-Bridging-Header.h";

@@ -195,7 +195,7 @@ void (^NSURLConnectionCompletionHandler) (NSURLResponse *response, NSData *respo
     
     if (log) {
         [self.preferenceHelper log:FILE_NAME line:LINE_NUM message:@"using url = %@", url];
-        [self.preferenceHelper log:FILE_NAME line:LINE_NUM message:@"body = %@", preparedParams];
+        [self.preferenceHelper log:FILE_NAME line:LINE_NUM message:@"body = %@", preparedParams]; //prettyprint
     }
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -237,7 +237,7 @@ void (^NSURLConnectionCompletionHandler) (NSURLResponse *response, NSData *respo
     }
 
     if (log) {
-        [self.preferenceHelper log:FILE_NAME line:LINE_NUM message:@"returned = %@", serverResponse];
+        [self.preferenceHelper log:FILE_NAME line:LINE_NUM message:@"returned = %@", serverResponse]; //prettyprint
     }
     
     return serverResponse;

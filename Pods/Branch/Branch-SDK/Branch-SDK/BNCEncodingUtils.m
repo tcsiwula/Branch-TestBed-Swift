@@ -267,7 +267,7 @@ static const short _base64DecodingTable[256] = {
     [encodedDictionary appendString:@"}"];
     
     if ([[BNCPreferenceHelper preferenceHelper] isDebug]) {
-        NSLog(@"encoded dictionary : %@", encodedDictionary);
+        NSLog(@"encoded dictionary : %@", encodedDictionary); //prettyprint
     }
     
     return encodedDictionary;
